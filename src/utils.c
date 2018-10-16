@@ -1,49 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/16 13:30:27 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/16 17:17:36 by ttresori         ###   ########.fr       */
+/*   Created: 2018/10/16 16:16:35 by ttresori          #+#    #+#             */
+/*   Updated: 2018/10/16 17:33:19 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_printf.h"
-#include <wchar.h>
 
-int		ft_printf(const char *str, ...)
+int		count_space(const char *str)
 {
-	va_list ap;
 	int space;
-	
-	va_start(ap, str);
+	int start;
+	int stop;
+	int my_exit;
+	const char *tmp;
+
 	space = 0;
-	while (*str)
+	start = 0;
+	stop = 0;
+	my_exit = 0;
+	tmp = str;
+	stop = ft_strlen(tmp);
+	while (start < stop)
 	{
-		if (*str == '%')
-		{
-			str++;
-			if (*str == 'd')
-			{
-				ft_putnbr(va_arg(ap, int));
-			}
-			if (*str == 's')
-			{
-				ft_putstr(va_arg(ap, char*));
-				space = count_space(str);
-				space = ft_putspace_nb(space);
-			}
-			if (*str == 'S')
-			{
-				putwchar(*(va_arg(ap, wchar_t*)));
-			}
-			if (*str == '\n')
-				ft_putchar('\n');
-		}
-		str++;
+		if (space >= 1 && tmp[start] != ' ')
+			return (space);
+		if (tmp[start] == ' ' && my_exit == 0)
+			space++;
+		start++;
 	}
-	va_end(ap);
+	return (space);
+}
+
+int		ft_putspace_nb(int space)
+{
+	while(space > 0)
+	{
+		ft_putchar(' ');
+		space--;
+	}
 	return (0);
 }
