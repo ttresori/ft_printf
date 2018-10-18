@@ -6,12 +6,11 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 13:30:27 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 17:17:58 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/18 20:03:53 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_printf.h"
-#include <wchar.h>
 
 int		ft_printf(const char *str, ...)
 {
@@ -26,23 +25,13 @@ int		ft_printf(const char *str, ...)
 		{
 			str++;
 			if (*str == 'd')
-			{
-				ft_putnbr(va_arg(ap, int));
-				space = count_space(str);
-				space = ft_putspace_nb(space);
-			}
+				ft_printf_d(ap, str);
 			if (*str == 's')
-			{
-				ft_putstr(va_arg(ap, char*));
-				space = count_space(str);
-				space = ft_putspace_nb(space);
-			}
+				ft_printf_s(ap, str);
 			if (*str == 'S')
-			{
-				putwchar(*(va_arg(ap, wchar_t*)));
-			}
+				ft_printf_S(ap);
 			if (*str == 'p')
-				print_hexa(&str);
+				ft_printf_p(ap);
 			if (*str == '\n')
 				ft_putchar('\n');
 		}

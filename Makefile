@@ -6,13 +6,13 @@
 #    By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/16 12:41:03 by ttresori          #+#    #+#              #
-#    Updated: 2018/10/16 16:22:22 by ttresori         ###   ########.fr        #
+#    Updated: 2018/10/18 21:18:41 by ttresori         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME= ft_printf
 SRCDIR= src
-SRC= main.c ft_printf.c utils.c
+SRC= main.c ft_printf.c utils.c core.c wchar_utils.c
 
 OBJDIR= obj
 OBJ= $(SRC:.c=.o)

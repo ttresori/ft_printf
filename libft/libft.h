@@ -7,7 +7,7 @@
 /*   By: ttresori <ttresori@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 20:33:56 by ttresori          #+#    #+#             */
-/*   Updated: 2017/09/02 10:58:19 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/18 18:12:19 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	ft_free_char_3d(char ***tab);
 void	ft_free_int_2d(int **tab, int il);
 void	ft_free_int_3d(int ***tab, int il, int jl);
 void	*ft_realloc(void *ptr, size_t prev_size, size_t new_size);
+void	ft_putnbr_base(int nb, char *base);
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strcpy(char *dest, const char *src);

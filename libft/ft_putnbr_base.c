@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib_printf.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/16 13:27:49 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/16 17:17:26 by ttresori         ###   ########.fr       */
+/*   Created: 2018/10/18 17:51:44 by ttresori          #+#    #+#             */
+/*   Updated: 2018/10/18 18:12:52 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_PRINTF_H
-# define LIB_PRINTF_H
+#include "libft.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
 
-int			ft_printf(const char *str, ...);
-int			count_space(const char *str);
-int			ft_putspace_nb(int space);
 
-#endif
+void	ft_putnbr_base(int nb, char *base)
+{
+	int 	size_base;
+	int		to_print[100];
+	int		i;
+
+	size_base = 0;
+	i = 0;
+	if (nb < 0)
+	{
+		nb = -nb;
+		ft_putchar('-');
+	}
+	while (base[size_base])
+		size_base++;
+	while (nb)
+	{
+		to_print[i] = nb % size_base;
+		nb = nb / size_base;
+		i++;
+	}
+	while (--i >= 0)
+		ft_putchar(base[to_print[i]]);
+}
