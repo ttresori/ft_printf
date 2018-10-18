@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lib_printf.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/16 12:40:56 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 17:18:53 by ttresori         ###   ########.fr       */
+/*   Created: 2018/10/16 13:27:49 by ttresori          #+#    #+#             */
+/*   Updated: 2018/10/16 17:17:26 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib_printf.h"
-#include "locale.h"
+#ifndef LIB_PRINTF_H
+# define LIB_PRINTF_H
 
-int		main(void)
-{
-	char a = 42;
+# include "../libft/libft.h"
+# include <stdarg.h>
 
-	setlocale(LC_ALL, "");
-	printf("%s   %s  %d %p\n", "Hello!", "HELLO", 42, &a);
-	ft_printf("%s   %s  %d %p\n", "Hello!", "HELLO", 42, &a);
-	return (0);
-}
+int			ft_printf(const char *str, ...);
+int			count_space(const char *str);
+int			ft_putspace_nb(int space);
+
+#endif

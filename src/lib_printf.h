@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 13:27:49 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/16 17:17:26 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/18 17:12:12 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@
 int			ft_printf(const char *str, ...);
 int			count_space(const char *str);
 int			ft_putspace_nb(int space);
-
+void		print_hexa(void *ptr);
 #endif

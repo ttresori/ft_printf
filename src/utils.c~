@@ -1,24 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/16 12:40:56 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 17:18:53 by ttresori         ###   ########.fr       */
+/*   Created: 2018/10/16 16:16:35 by ttresori          #+#    #+#             */
+/*   Updated: 2018/10/16 17:33:19 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_printf.h"
-#include "locale.h"
 
-int		main(void)
+int		count_space(const char *str)
 {
-	char a = 42;
+	int space;
+	int start;
+	int stop;
+	int my_exit;
+	const char *tmp;
 
-	setlocale(LC_ALL, "");
-	printf("%s   %s  %d %p\n", "Hello!", "HELLO", 42, &a);
-	ft_printf("%s   %s  %d %p\n", "Hello!", "HELLO", 42, &a);
+	space = 0;
+	start = 0;
+	stop = 0;
+	my_exit = 0;
+	tmp = str;
+	stop = ft_strlen(tmp);
+	while (start < stop)
+	{
+		if (space >= 1 && tmp[start] != ' ')
+			return (space);
+		if (tmp[start] == ' ' && my_exit == 0)
+			space++;
+		start++;
+	}
+	return (space);
+}
+
+int		ft_putspace_nb(int space)
+{
+	while(space > 0)
+	{
+		ft_putchar(' ');
+		space--;
+	}
 	return (0);
 }

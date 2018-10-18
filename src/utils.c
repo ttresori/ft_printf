@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 16:16:35 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/16 17:33:19 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/18 17:49:30 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,12 @@ int		ft_putspace_nb(int space)
 		space--;
 	}
 	return (0);
+}
+
+void	print_hexa(void *ptr)
+{
+	uintptr_t  val;
+
+	val = (uintptr_t)ptr;
+	
 }
