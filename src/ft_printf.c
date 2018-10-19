@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 13:30:27 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 20:03:53 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/19 19:36:31 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int		ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (*str == 'd')
-				ft_printf_d(ap, str);
+			if (*str == 'd' || *str == 'D')
+				ft_printf_d(ap);
 			if (*str == 's')
-				ft_printf_s(ap, str);
+				ft_printf_s(ap);
 			if (*str == 'S')
 				ft_printf_S(ap);
 			if (*str == 'p')
@@ -35,6 +35,8 @@ int		ft_printf(const char *str, ...)
 			if (*str == '\n')
 				ft_putchar('\n');
 		}
+		if (*str == ' ')
+			ft_putchar(' ');
 		str++;
 	}
 	va_end(ap);
