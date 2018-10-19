@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 21:17:52 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 21:51:50 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/19 16:47:34 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ int		putwchar_char(wchar_t wchar, char *dest, int i)
 		dest[i++] = wchar;
 	else if (size == 2)
 	{
-		dest[i++] = (wchar >> 6) + 0xc0; // 6 sur la droite, ajout de 11000000
+		dest[i++] = (wchar >> 6) + 0xc0; // 6 eme bytesur la droite, ajout de 11000000
+		printf("%x, %x", (wchar >> 6), (wchar >> 6) + 0xc0);
 		dest[i++] = (wchar & 0x3F) + 0x80; // filtre par 111111, ajout de 10000000
 	}
 	else if (size == 3)
