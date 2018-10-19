@@ -1,5 +1,6 @@
 https://pages.lip6.fr/Jean-Francois.Perrot/inalco/cours06/Cours6/TransC/LirUTF8.html
 
+https://en.wikipedia.org/wiki/UTF-8
 
 0xFF01A2 -> on decalle pour stocker chaque byte dans un char*, on applique un filtre pour "nettoyer" les valeurs deja utiliser.
 --------

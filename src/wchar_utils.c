@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 21:17:52 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/19 16:47:34 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/19 18:50:29 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,29 @@ size_t	wbytelen(wchar_t *wstring)
 }
 
 int		putwchar_char(wchar_t wchar, char *dest, int i)
-{
+{ //Readme->Wiki-UTF-8 
 	int		size;
 
 	size = wcharlen(wchar);
 	if (size == 1)
 		dest[i++] = wchar;
-	else if (size == 2)
+	else if (size == 2) // Sur 2 byte
 	{
-		dest[i++] = (wchar >> 6) + 0xc0; // 6 eme bytesur la droite, ajout de 11000000
-		printf("%x, %x", (wchar >> 6), (wchar >> 6) + 0xc0);
-		dest[i++] = (wchar & 0x3F) + 0x80; // filtre par 111111, ajout de 10000000
+		dest[i++] = (wchar >> 6) + 0xc0; // 1er Byte : 110xxxxx
+		dest[i++] = (wchar & 0x3F) + 0x80; // 2eme Byte : 10xxxxxx
 	}
 	else if (size == 3)
 	{
-		dest[i++] = (wchar >> 12) + 0xE0;
-		dest[i++] = ((wchar >> 6) & 0x3F) + 0x80;
-		dest[i++] = (wchar & 0x3F) + 0x80;
+		dest[i++] = (wchar >> 12) + 0xE0; // 1110
+		dest[i++] = ((wchar >> 6) & 0x3F) + 0x80; // 10
+		dest[i++] = (wchar & 0x3F) + 0x80; // 10
 	}
 	else 
 	{
-		dest[i++] = (wchar >> 18) + 0xf0;
-		dest[i++] = ((wchar >> 12) & 0x3F) +0x80;
-		dest[i++] = ((wchar >> 6) & 0x3F) + 0x80;
-		dest[i++] = (wchar & 0x3F) + 0x80;
+		dest[i++] = (wchar >> 18) + 0xf0; // 11110
+		dest[i++] = ((wchar >> 12) & 0x3F) + 0x80; // 10
+		dest[i++] = ((wchar >> 6) & 0x3F) + 0x80; // 10
+		dest[i++] = (wchar & 0x3F) + 0x80; // 10
 	}
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 19:53:33 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 21:47:40 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/19 18:39:55 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void		ft_printf_S(va_list ap)
 	converted = convert_wchar_char(src);
 	ft_putchar(' ');
 	ft_putstr(converted);
+	ft_strdel(&converted);
 }
 
 void		ft_printf_p(va_list ap)

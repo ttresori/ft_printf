@@ -6,7 +6,7 @@
 /*   By: ttresori <rammsteinluffy@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 16:16:35 by ttresori          #+#    #+#             */
-/*   Updated: 2018/10/18 21:18:22 by ttresori         ###   ########.fr       */
+/*   Updated: 2018/10/19 18:52:08 by ttresori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_putspace_nb(int space)
 
 void	ft_puthexa(uintptr_t nb, char b) // uintptr_t == *void (in memory)
 {
-	if (nb > 15)
+	if (nb >= 16)
 	{
 		ft_puthexa(nb / 16, b);
 		ft_puthexa(nb % 16, b);
